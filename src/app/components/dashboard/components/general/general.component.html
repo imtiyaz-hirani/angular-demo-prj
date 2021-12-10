@@ -1,0 +1,23 @@
+
+<ng-container *ngIf="isPass;then passMsg  else failMsg">
+</ng-container>
+
+<ng-template #passMsg>
+  OK you Passed
+</ng-template>
+
+<ng-template #failMsg>
+  OK you failed
+</ng-template>
+
+<hr />
+
+Enter the Message: <input type="text" [(ngModel)]='message'>
+<br />
+<button (click) = 'messageSubmit()'>Send Message</button>
+<!-- You Entered: {{message}} -->
+<br /><br />
+
+Enter the fname:  <input type="text" [(ngModel)]='fname'> <br />
+Enter the surname:<input type="text" [(ngModel)]='lname'>
+<button (click) = 'addPerson()'>Add Person in List</button>

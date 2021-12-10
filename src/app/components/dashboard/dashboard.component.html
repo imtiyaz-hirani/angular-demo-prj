@@ -1,0 +1,22 @@
+<!--
+<app-dashboard-general [isPassVal]='isPass'
+(msgEmitter)="getMessage($event)"
+(personEmitter)="getPerson($event)"></app-dashboard-general>
+<hr />
+
+<app-dashboard-city-list></app-dashboard-city-list>
+<br >
+<router-outlet></router-outlet>
+<hr />
+
+<app-dashboard-person-list [personData]='persons'></app-dashboard-person-list>
+<br />
+<button (click)="showContent()">Show Content</button>
+<br />
+<div *ngIf="show">
+  This is dashboard content  <br />
+  lorem ipson sample text
+</div>
+-->
+
+<app-dashboard-post-list [postData] = 'posts'></app-dashboard-post-list>

@@ -1,0 +1,11 @@
+
+<div *ngIf='show'>
+<h3>Cities</h3>
+<div *ngFor="let c of cities">
+  {{c}} <br />
+</div>
+
+<br>
+
+<a (click)="showAddCity()" href="javascript::void"> add city </a>
+</div>
