@@ -19,4 +19,7 @@
 </div>
 -->
 
-<app-dashboard-post-list [postData] = 'posts'></app-dashboard-post-list>
+<app-dashboard-post-list [postData] ='posts'
+(postEmitter)="showPost($event)">
+
+</app-dashboard-post-list>

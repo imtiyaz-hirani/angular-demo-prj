@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { Post } from 'src/app/model/post.model';
+
 
 @Component({
   selector: 'app-dashboard-post-list',
@@ -10,9 +12,17 @@ export class PostListComponent implements OnInit {
 
   @Input('postData')
   posts : Post[];
-  constructor() { }
+
+  @Output()
+  postEmitter = new EventEmitter;
+
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  showPost(postId: number){
+    this.postEmitter.emit(postId);
+    this.router.navigateByUrl('/show-post');
+  }
 }

@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { prependOnceListener } from 'process';
 import { Person } from 'src/app/model/person.model';
 import { Post } from 'src/app/model/post.model';
 import { CityListComponent } from './components/city-list/city-list.component';
@@ -47,6 +48,10 @@ export class DashboardComponent implements OnInit,OnDestroy, AfterViewInit {
 
   getPerson($event : any){
        this.persons.push($event);
+  }
+
+  showPost(postId : number){
+    console.log(postId);
   }
 
   ngOnDestroy(): void {

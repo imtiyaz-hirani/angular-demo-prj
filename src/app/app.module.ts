@@ -15,7 +15,8 @@ import { NavbarComponent } from './components/core/navbar/navbar.component';
 import { PageNotFoundComponent } from './components/core/page-not-found/page-not-found.component';
 import { AddCityComponent } from './components/dashboard/components/add-city/add-city.component';
 import { HttpClientModule} from '@angular/common/http';
-import { PostListComponent } from './components/dashboard/components/post-list/post-list.component'
+import { PostListComponent } from './components/dashboard/components/post-list/post-list.component';
+import { PostViewComponent } from './components/dashboard/components/post-view/post-view.component'
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { PostListComponent } from './components/dashboard/components/post-list/p
     NavbarComponent,
     PageNotFoundComponent,
     AddCityComponent,
-    PostListComponent
+    PostListComponent,
+    PostViewComponent
   ],
   imports: [
     BrowserModule,

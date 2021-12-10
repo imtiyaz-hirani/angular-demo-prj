@@ -1,6 +1,7 @@
 <h3>List of Posts</h3>
 <div *ngFor="let p of posts" class="post">
   ID: {{p.id}}  <br />
-  Title: {{p.title}}
+  Title: {{p.title}} <br />
+  <button (click)="showPost(p.id)">View Post</button>
 </div>
 <br />
