@@ -32,7 +32,6 @@ export class DashboardComponent implements OnInit,OnDestroy, AfterViewInit {
     this._dashboardService.getPosts().subscribe(
       dataVal => {
         this.posts = dataVal;
-        console.log(this.posts);
       }
     );
 
@@ -51,7 +50,8 @@ export class DashboardComponent implements OnInit,OnDestroy, AfterViewInit {
   }
 
   showPost(postId : number){
-    console.log(postId);
+    //from here we reach out to service, getch post by id,
+    //and pass it to
   }
 
   ngOnDestroy(): void {

@@ -1,1 +1,17 @@
-<h1>Single Post Here</h1>
+<h1>{{ post?.title}}</h1>
+
+<p>{{post?.body}}</p>
+
+<p>By User {{post?.userId}}</p>
+
+<h3>Comments</h3>
+
+<span *ngFor='let c of comments'>
+    {{c.body}}
+    <br />
+    - {{c.name}} <br />
+    - (email) {{c.email}}
+
+    <hr />
+</span>
+

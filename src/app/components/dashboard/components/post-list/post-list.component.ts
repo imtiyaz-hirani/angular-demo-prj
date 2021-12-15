@@ -23,6 +23,6 @@ export class PostListComponent implements OnInit {
 
   showPost(postId: number){
     this.postEmitter.emit(postId);
-    this.router.navigateByUrl('/show-post');
+    this.router.navigateByUrl('/show-post/' + postId);
   }
 }

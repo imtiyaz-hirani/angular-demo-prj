@@ -13,7 +13,7 @@ const routes: Routes = [
         { path : 'add-city' , component: AddCityComponent},
   ]
   },
-  { path : 'show-post' , component: PostViewComponent},
+  { path : 'show-post/:id' , component: PostViewComponent},
   { path : 'about-us' , component: AboutusComponent},
   { path : '**' , component: PageNotFoundComponent }
 ];
