@@ -25,4 +25,12 @@ export class PostListComponent implements OnInit {
     this.postEmitter.emit(postId);
     this.router.navigateByUrl('/show-post/' + postId);
   }
+
+  showNewPost(){
+    this.router.navigateByUrl('/new-post');
+  }
+
+  showNewReactivePost(){
+    this.router.navigateByUrl('/new-post-reactive');
+  }
 }

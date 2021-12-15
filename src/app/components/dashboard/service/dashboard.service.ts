@@ -14,6 +14,7 @@ export class DashboardService {
   postGetAPi: string;
   singleGetApiForPost: string;
   commentsByPostId: string;
+  addPostApi: string;
 
   constructor(private http: HttpClient ) {
     this.persons = personData;
@@ -22,6 +23,7 @@ export class DashboardService {
     this.postGetAPi = 'https://jsonplaceholder.typicode.com/posts';
     this.singleGetApiForPost = 'https://jsonplaceholder.typicode.com/posts';
     this.commentsByPostId = 'https://jsonplaceholder.typicode.com/posts';
+    this.addPostApi = 'https://jsonplaceholder.typicode.com/posts';
   }
 
   sum(x: number, y: number) : number {
@@ -47,6 +49,10 @@ export class DashboardService {
   getCommentsByPostId(postId: number) : Observable<Comment[]>{
      return this.http.get<Comment[]>(this.commentsByPostId
       + '/' + postId + '/comments');
+  }
+
+  addPost(post: Post):Observable<Post>{
+    return this.http.post<Post>(this.addPostApi, post);
   }
 }
 

@@ -1,0 +1,49 @@
+<h1>new-post works!</h1>
+<!-- Template based forms
+required
+minlength
+maxlength
+pattern
+-->
+
+<div class="row">
+  <div class="col-md-6">
+    <form (submit)="onSubmit(postForm)" #postForm="ngForm" >
+      Title:
+      <input type="text" name="title" class="form-control" required minlength="3"
+         maxlength="15" pattern="[a-zA-Z0-9]+"
+         placeholder="Enter title" ngModel #title="ngModel">
+
+         <span *ngIf="title.invalid && title.touched">
+             <span *ngIf="title.errors.required"> Title is required</span>
+         </span>
+
+         <span *ngIf="title.invalid && title.touched">
+            <span *ngIf="title.errors.minlength"> Title should have min 3 chars</span>
+        </span>
+
+        <span *ngIf="title.invalid && title.touched">
+           <span *ngIf="title.errors.maxlength"> Title can have max 15 chars</span>
+        </span>
+
+        <span *ngIf="title.invalid && title.touched">
+          <span *ngIf="title.errors.pattern">  Only alphabets and numbers are allowed</span>
+        </span>
+
+         <br />
+         <br />
+         Body:
+         <textarea name="body" class="form-control" ngModel></textarea>
+
+         <br />
+         <br />
+         UserId:
+         <input type="text" name="userId" class="form-control"
+         placeholder="Enter User Id" ngModel>
+         <br />
+         <br />
+         <input type="submit" value="Add post" [disabled]="!postForm.valid">
+        </form>
+  </div>
+</div>
+

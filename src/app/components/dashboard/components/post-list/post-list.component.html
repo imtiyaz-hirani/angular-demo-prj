@@ -1,5 +1,11 @@
 <h3>List of Posts</h3>
-<div *ngFor="let p of posts" class="post">
+
+<hr />
+ <button (click) = "showNewPost()">  Add New Post </button>
+ &nbsp;&nbsp;&nbsp;
+ <button (click) = "showNewReactivePost()">  Add New Post - reactive</button>
+
+ <div *ngFor="let p of posts" class="post">
   ID: {{p.id}}  <br />
   Title: {{p.title}} <br />
   <button (click)="showPost(p.id)">View Post</button>
