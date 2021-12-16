@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Post } from 'src/app/model/post.model';
+import { DashboardService } from '../../service/dashboard.service';
 
 @Component({
   selector: 'app-dashboard-new-post-reactive',
@@ -9,7 +11,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class NewPostReactiveComponent implements OnInit {
 
   userFormGroup: FormGroup;
-  constructor() { }
+  post: Post;
+  constructor(private _dashboardService: DashboardService) { }
 
   ngOnInit(): void {
     this.userFormGroup = new FormGroup({
@@ -23,6 +26,14 @@ export class NewPostReactiveComponent implements OnInit {
   }
 
   onFormSubmit(){
+      this.post = this.userFormGroup.value;
+      this._dashboardService.addPost(this.post).subscribe(
+        data=>{
+          this.post = data;
+          console.log(this.post);
+        }
+      );
+
 
   }
 }
