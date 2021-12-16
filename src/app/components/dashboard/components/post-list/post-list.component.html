@@ -7,7 +7,8 @@
 
  <div *ngFor="let p of posts" class="post">
   ID: {{p.id}}  <br />
-  Title: {{p.title}} <br />
-  <button (click)="showPost(p.id)">View Post</button>
+  Title: {{p.title}} <br /><br />
+  <button (click)="showPost(p.id)" class="btn btn-primary">View Post</button>
+  &nbsp;&nbsp;&nbsp;
+  <button (click)="deletePost(p.id)" class="btn btn-danger">Delete Post</button>
 </div>
-

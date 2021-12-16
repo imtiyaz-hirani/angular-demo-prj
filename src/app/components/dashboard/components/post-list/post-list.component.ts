@@ -15,6 +15,9 @@ export class PostListComponent implements OnInit {
 
   @Output()
   postEmitter = new EventEmitter;
+  @Output()
+  deleteEmitter = new EventEmitter;
+
 
   constructor(private router: Router) { }
 
@@ -32,5 +35,9 @@ export class PostListComponent implements OnInit {
 
   showNewReactivePost(){
     this.router.navigateByUrl('/new-post-reactive');
+  }
+
+  deletePost(id: number){
+    this.deleteEmitter.emit(id);
   }
 }

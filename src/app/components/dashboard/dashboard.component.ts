@@ -54,6 +54,14 @@ export class DashboardComponent implements OnInit,OnDestroy, AfterViewInit {
     //and pass it to
   }
 
+  deletePost(postId: number){
+      this._dashboardService.deletePost(postId).subscribe(
+        data=> {
+            this.posts = this.posts.filter(e=> e.id !==  postId);
+        }
+      );
+  }
+
   ngOnDestroy(): void {
 
   }
