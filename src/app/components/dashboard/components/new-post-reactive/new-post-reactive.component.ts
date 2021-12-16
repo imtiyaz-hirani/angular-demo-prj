@@ -8,18 +8,21 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class NewPostReactiveComponent implements OnInit {
 
-  userForm: FormGroup;
+  userFormGroup: FormGroup;
   constructor() { }
 
   ngOnInit(): void {
-    this.userForm = new FormGroup({
+    this.userFormGroup = new FormGroup({
       title: new FormControl('',
         [Validators.required, Validators.minLength(3), Validators.maxLength(15),
-        Validators.pattern(/[a-zA-Z0-9 ]+/) ]),
+        Validators.pattern(/^[a-zA-Z0-9 ]+$/) ]),
       body: new FormControl('', Validators.required),
       userId: new FormControl('', Validators.required)
     }
     );
   }
 
+  onFormSubmit(){
+
+  }
 }
