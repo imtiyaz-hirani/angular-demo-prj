@@ -16,13 +16,13 @@ export class PostViewComponent implements OnInit {
   post: Post;
   comments: Comment[];
   postForm: FormGroup;
+  editedPost: Post;
 
   displayStyle = "none";
   constructor(private activatedRoute: ActivatedRoute,
     private _dashboardService : DashboardService) { }
 
   ngOnInit(): void {
-
     this.postForm = new FormGroup({
       title: new FormControl('',
         [Validators.required, Validators.minLength(3), Validators.maxLength(15),
@@ -46,11 +46,6 @@ export class PostViewComponent implements OnInit {
         this.comments = data;
       });
   }
-    //from here we reach out to service, getch post by id,
-    //and attach it to post
-
-
-
   openPopup() {
     this.displayStyle = "block";
   }
@@ -58,11 +53,19 @@ export class PostViewComponent implements OnInit {
     this.displayStyle = "none";
   }
 
-  editPost(){
-    console.log('post edited');
-  }
-
   onFormSubmit(){
 
+      this.editedPost = {
+        id: this.post.id,
+        userId: this.post.userId,
+        title: this.postForm.value.title,
+        body : this.postForm.value.body
+      }
+
+       this._dashboardService.editPost(this.editedPost)
+       .subscribe(data=>{
+         this.post = data;
+         this.displayStyle = "none";
+       });
   }
 }

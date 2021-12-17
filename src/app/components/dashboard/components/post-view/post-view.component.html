@@ -26,7 +26,7 @@ role="dialog"
     <div class="modal-header">
       <h4 class="modal-title">Edit Post</h4>
     </div>
-    <div class="modal-body">
+    <div class="modal-body" >
 
       <form (submit)="onFormSubmit()" [formGroup]="postForm">
 
@@ -34,25 +34,14 @@ role="dialog"
         <input type="text" class="form-control" formControlName="title" value={{post?.title}}>
         <br />
 
-        <span *ngIf="postForm.controls['title'].invalid
-             && postForm.controls['title'].touched">
-             <span *ngIf="userFormGroup.controls['title'].errors.required"> Title is required</span>
-             <span *ngIf="userFormGroup.controls['title'].errors.minlength"> Title should have min 3 chars</span>
-             <span *ngIf="userFormGroup.controls['title'].errors.maxlength"> Title can have max 15 chars</span>
-             <span *ngIf="userFormGroup.controls['title'].errors.pattern">  Only alphabets and numbers are allowed</span>
-        </span>
-        <br />
         Body:
         <textarea class="form-control" formControlName="body" value={{post?.body}} rows="10"  cols="10"> </textarea>
         <br />
 
-        <input type="submit" [disabled]="!postForm.valid" value="Edit post" class="btn btn-info">
+        <input type="submit"  value="Edit post" class="btn btn-primary">
 
       </form>
-
-
-
-    </div>
+</div>
     <div class="modal-footer">
 
 

@@ -7,6 +7,7 @@ import { Post } from 'src/app/model/post.model';
 import { personData } from '../data/data';
 @Injectable()
 export class DashboardService {
+
   cities :string[];
   persons:Person[];
 
@@ -15,6 +16,7 @@ export class DashboardService {
   commentsByPostId: string;
   addPostApi: string;
   deleteAPi: string;
+  editApi: string;
   constructor(private http: HttpClient ) {
     this.persons = personData;
     this.cities  = ['mumbai','chennai','pune'];
@@ -24,6 +26,7 @@ export class DashboardService {
     this.commentsByPostId = 'https://jsonplaceholder.typicode.com/posts';
     this.addPostApi = 'https://jsonplaceholder.typicode.com/posts';
     this.deleteAPi='https://jsonplaceholder.typicode.com/posts';
+    this.editApi = 'https://jsonplaceholder.typicode.com/posts';
   }
 
   sum(x: number, y: number) : number {
@@ -57,6 +60,11 @@ export class DashboardService {
 
   deletePost(postId: number):Observable<any> {
      return this.http.delete(this.deleteAPi + '/' + postId);
+  }
+
+  editPost(editedPost: Post): Observable<Post> {
+    return this.http.put<Post>(this.editApi + '/'
+      + editedPost.id, editedPost);
   }
 }
 

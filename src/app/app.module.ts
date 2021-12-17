@@ -18,7 +18,8 @@ import { HttpClientModule} from '@angular/common/http';
 import { PostListComponent } from './components/dashboard/components/post-list/post-list.component';
 import { PostViewComponent } from './components/dashboard/components/post-view/post-view.component';
 import { NewPostComponent } from './components/dashboard/components/new-post/new-post.component';
-import { NewPostReactiveComponent } from './components/dashboard/components/new-post-reactive/new-post-reactive.component'
+import { NewPostReactiveComponent } from './components/dashboard/components/new-post-reactive/new-post-reactive.component';
+import { LoginComponent } from './authentication/login/login.component'
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { NewPostReactiveComponent } from './components/dashboard/components/new-
     PostListComponent,
     PostViewComponent,
     NewPostComponent,
-    NewPostReactiveComponent
+    NewPostReactiveComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
