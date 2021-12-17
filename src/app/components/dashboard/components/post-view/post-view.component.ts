@@ -14,7 +14,7 @@ export class PostViewComponent implements OnInit {
   postId: number;
   post: Post;
   comments: Comment[];
-
+  displayStyle = "none";
   constructor(private activatedRoute: ActivatedRoute,
     private _dashboardService : DashboardService) { }
 
@@ -39,4 +39,10 @@ export class PostViewComponent implements OnInit {
       });
   }
 
+  openPopup() {
+    this.displayStyle = "block";
+  }
+  closePopup() {
+    this.displayStyle = "none";
+  }
 }
