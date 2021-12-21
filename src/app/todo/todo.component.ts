@@ -10,18 +10,28 @@ import { TodoService } from './service/todo.service';
 export class TodoComponent implements OnInit {
 
   todo: Todo[];
+  numberOfTodos: number;
+  completedTodos: number;
+  pendingTodos: number;
+
   constructor(private todoService: TodoService) { }
 
   ngOnInit(): void {
     this.todoService.getTodoFromApi().subscribe(
       (data)=>{
           this.todo = data;
-          console.log(this.todo);
+          this.numberOfTodos = this.todo.length;
+          this.completedTodos = this.todo
+                                .filter(t=>t.completed === true).length;
+          this.pendingTodos = this.todo
+                                .filter(t=>t.completed === false).length;
       },
       (error)=>{
 
       }
     );
+
+
   }
 
 }
