@@ -18,4 +18,8 @@ export class TodoService {
   getTodoFromApi() : Observable<Todo[]>{
     return this.http.get<Todo[]>(environment.apiPath + '/todos');
   }
+
+  setTodo(todo: Todo[]):void{
+      this.todo$.next(todo);
+  }
 }

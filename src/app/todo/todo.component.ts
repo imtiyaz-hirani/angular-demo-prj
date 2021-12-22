@@ -19,19 +19,27 @@ export class TodoComponent implements OnInit {
   ngOnInit(): void {
     this.todoService.getTodoFromApi().subscribe(
       (data)=>{
-          this.todo = data;
-          this.numberOfTodos = this.todo.length;
-          this.completedTodos = this.todo
-                                .filter(t=>t.completed === true).length;
-          this.pendingTodos = this.todo
-                                .filter(t=>t.completed === false).length;
+          this.todoService.setTodo(data);
       },
       (error)=>{
 
       }
     );
 
+    this.todoService.getTodo().subscribe(
+      data=>{
+          this.todo = data;
+          this.numberOfTodos = this.todo.length;
+          this.completedTodos = this.todo
+                                .filter(t=>t.completed === true).length;
+          this.pendingTodos = this.todo
+                                .filter(t=>t.completed === false).length;
+    });
+  }
 
+  deleteTodo(id: number){
+    this.todo = this.todo.filter(t=>t.id !== id);
+    this.todoService.setTodo(this.todo);
   }
 
 }

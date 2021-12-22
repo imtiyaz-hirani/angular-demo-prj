@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-todo-stat',
@@ -6,6 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./todo-stat.component.css']
 })
 export class TodoStatComponent implements OnInit {
+
+  @Input()
+  numberOfTodos: number;
+
+  @Input()
+  completedTodos: number;
+
+  @Input()
+  pendingTodos: number;
 
   constructor() { }
 

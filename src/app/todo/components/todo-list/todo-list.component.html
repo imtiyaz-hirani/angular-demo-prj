@@ -8,7 +8,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let t of list">
+    <tr *ngFor="let t of list  | slice:0:15">
       <th scope="row"> {{t.id}}</th>
       <td>{{t.userId | currency: 'INR'}}</td>
       <td>{{t.title | uppercase}}</td>

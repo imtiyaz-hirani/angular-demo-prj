@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NgrxHomeComponent } from './components/ngrx-home/ngrx-home.component';
 
 const routes: Routes = [
+  {path : '' , component: NgrxHomeComponent},
   {
     path: 'customer', loadChildren: () => import('./customer/customer.module').then(m => m.CustomerModule) },
   { path: 'customer-stats', loadChildren: () => import('./customer-stats/customer-stats.module').then(m => m.CustomerStatsModule) },
